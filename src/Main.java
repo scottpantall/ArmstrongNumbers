@@ -13,14 +13,29 @@ public class Main {
         
         while ((line = buffer.readLine()) != null) {
             line = line.trim();
-            //System.out.println(line);
             Armstrong(line);
         }
     }
     
     public static void Armstrong(String line) {
-        System.out.println(line);
-        //char[] numbers = line.toCharArray();
+        int lineValue = Integer.parseInt(line);
+        int armstrongValue = 0;
+        char[] numbers = line.toCharArray();
+        String answer;
         
+        for(int i = 0; i < numbers.length; i++) {
+            armstrongValue += Math.pow(Character.getNumericValue(numbers[i]), numbers.length);
+        }
+        
+        /*
+        if(lineValue == armstrongValue) {
+            System.out.println("True");
+        } else {
+            System.out.println("False");
+        }
+        */
+        
+        answer = (lineValue == armstrongValue) ? "True" : "False";
+        System.out.println(answer);
     }
 }
